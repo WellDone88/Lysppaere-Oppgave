@@ -7,19 +7,75 @@
 
     <style>
 
-        #lys {
+        h2 {
+            color:red;
+        }
+        .divBG {
             background-color: grey;
-            height: 500px;
-            width: 200px;
-            border-radius: 90%;
+            width: 100px;
+            height: 200px;
+            border: solid black;
+            border-radius: 70px;
+        }
 
-         }
+        .divBGon {
+            background-color: yellow;
+        }
+
+        #buttonSwitch{
+            width: 60x;
+            height: 30px;
+        }
+
+        .switchText {
+            color:white;
+            background-color: rgb(101, 101, 161);
+            width: 100px;
+            border: solid brown;
+        }
+
     </style>
-    
 </head>
 <body>
 
-    <div id="lys"></div>
-    
+    <!--Lag et div-element som starter med bakgrunnsfargen grå.
+Når man trykker på lysbryteren så skrur lyspæren 
+seg på (og fargen endrer seg til gul).
+Legg gjerne også ved en tekst som sier noe om lyspæren er på eller av.
+Oppgaven kan løses med onclick, variabler, if/else (ternary).  -->
+
+    <h2>Lyspære</h2>
+
+    <div id="light" class="divBG"></div><br>
+    <button id="buttonSwitch" onclick="Switch()">switch</button>
+    <p id="statusText" class="switchText">Lyset er av</p>
+
+    <script>
+        let lightON = false;
+
+        function Switch() {
+                if(lightON ) {
+                    document.getElementById('light').classList.remove('divBGon');
+                    document.getElementById('statusText').innerHTML = 'Lyset er av';
+                    document.body.style.backgroundColor = 'rgb(22, 21, 21)'
+                    lightON = false;
+
+                 }
+                else {
+                    document.getElementById('light').classList.add('divBGon');
+                    document.getElementById('statusText').innerHTML = 'Lyset er på';
+                    document.body.style.backgroundColor = 'rgb(233, 233, 165)'
+                    lightON = true;
+                    
+                    
+                }
+
+                }
+        /*function OnOrOff()
+            document.getElementById('light').classList.add('divBGon')
+
+        }*/
+    </script>
+
 </body>
 </html>
